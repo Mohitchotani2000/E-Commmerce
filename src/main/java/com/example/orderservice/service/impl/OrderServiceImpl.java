@@ -14,9 +14,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Log4j2
@@ -49,6 +47,7 @@ public class OrderServiceImpl implements OrderService {
         order.setTotalPrice(sum);
         order.setCreatedDate(new Date());
         orderRepository.save(order);
+        orderItems.forEach(x->x.setOrder(order));
         orderItemRepository.saveAll(orderItems);
         log.info("Order with id " + order.getOrderId() + " added successfully");
         return order;
