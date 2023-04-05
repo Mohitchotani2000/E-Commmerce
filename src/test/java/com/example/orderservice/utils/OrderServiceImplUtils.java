@@ -17,12 +17,12 @@ public class OrderServiceImplUtils {
     public static Product PRODUCT_2 = new Product(2,"Mouse",500);
     public static Product PRODUCT_3 = new Product(3,"Charger",1000);
     public static Product PRODUCT_4 = new Product(4,"Bag",500);
-    public static OrderItem ITEM_1 = new OrderItem(1,"Pencil",2,PRODUCT_1,null);
-    public static OrderItem ITEM_2 = new OrderItem(2,"Mouse",1,PRODUCT_2,null);
-    public static OrderItem ITEM_3 = new OrderItem(3,"Charger",1,PRODUCT_3,null);
-    public static List<OrderItem> ORDER_ITEM_1 = new ArrayList<>(Arrays.asList(ITEM_1,ITEM_2,ITEM_3));
+    public static OrderItem ITEM_1 = new OrderItem(1,"Pencil",2,PRODUCT_1);
+    public static OrderItem ITEM_2 = new OrderItem(2,"Mouse",1,PRODUCT_2);
+    public static OrderItem ITEM_3 = new OrderItem(3,"Charger",1,PRODUCT_3);
+    public static List<OrderItem> ORDER_ITEM_1 = new ArrayList<>(Arrays.asList(ITEM_1,ITEM_2));
     public static List<OrderItem> ORDER_ITEM_2 = new ArrayList<>(Arrays.asList(ITEM_1,ITEM_3));
-    public static Order ORDER_1 = new Order(1,new Date(),1520,ORDER_ITEM_1);
+    public static Order ORDER_1 = new Order(1,new Date(),520,ORDER_ITEM_1);
     public static Order ORDER_2 = new Order(2,new Date(),1020,ORDER_ITEM_2);
     public static List<Product> getProductsList(){
         List<Product> products = new ArrayList<>(Arrays.asList(PRODUCT_1,PRODUCT_2,PRODUCT_3,PRODUCT_4));
@@ -44,11 +44,8 @@ public class OrderServiceImplUtils {
 
     public static OrderDto getOrderDto(){
         OrderDto orderDto =  new OrderDto();
-//        List<OrderItem> orderItems = new ArrayList<>(Arrays.asList(ITEM_1));
-//        OrderItem oi = new OrderItem(1,"Pencil",2,PRODUCT_1,null);
-//        orderItems.add(oi);
         orderDto.setOrderItems(ORDER_ITEM_1);
-        orderDto.setTotalPrice(1520);
+        orderDto.setTotalPrice(520);
         orderDto.setCreatedDate(new Date());
         orderDto.setOrderId(1);
         return orderDto;
@@ -58,7 +55,7 @@ public class OrderServiceImplUtils {
         Order order1 =  new Order();
         Order order2 =  new Order();
         order1.setOrderItems(ORDER_ITEM_1);
-        order1.setTotalPrice(1520);
+        order1.setTotalPrice(520);
         order1.setCreatedDate(new Date());
         order1.setOrderId(1);
         order2.setOrderItems(ORDER_ITEM_2);

@@ -2,7 +2,6 @@ package com.example.orderservice.service.impl;
 
 import com.example.orderservice.entity.Order;
 import com.example.orderservice.entity.Product;
-import com.example.orderservice.exception.ResourceAlreadyExistsException;
 import com.example.orderservice.exception.ResourceNotFoundException;
 import com.example.orderservice.utils.OrderServiceImplUtils;
 import com.example.orderservice.payload.OrderDto;
@@ -47,7 +46,6 @@ class OrderServiceImplTest {
         OrderDto request = OrderServiceImplUtils.getOrderDto();
         when(productRepository.findByproductName("Pencil")).thenReturn(Optional.of(products.get(0)));
         when(productRepository.findByproductName("Mouse")).thenReturn(Optional.of(products.get(1)));
-        when(productRepository.findByproductName("Charger")).thenReturn(Optional.of(products.get(2)));
         //when
         Order actual = orderService.placeOrder(request);
         //then
@@ -96,11 +94,8 @@ class OrderServiceImplTest {
     void testGetProductByName_throwsException() {
         //given
         String productName ="Laptop";
-//        when(productRepository.findByproductName(productName)).thenThrow(ResourceNotFoundException.class);
         //when
-        assertThrows(ResourceNotFoundException.class,()->{
-            orderService.getProductByName(productName);
-        });
+        assertThrows(ResourceNotFoundException.class,()-> orderService.getProductByName(productName));
         //then
         Mockito.verify(productRepository,only()).findByproductName(productName);
     }

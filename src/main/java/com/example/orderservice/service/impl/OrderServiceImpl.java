@@ -47,7 +47,6 @@ public class OrderServiceImpl implements OrderService {
         order.setTotalPrice(sum);
         order.setCreatedDate(new Date());
         orderRepository.save(order);
-        orderItems.forEach(x->x.setOrder(order));
         orderItemRepository.saveAll(orderItems);
         log.info("Order with id " + order.getOrderId() + " added successfully");
         return order;
@@ -68,7 +67,7 @@ public class OrderServiceImpl implements OrderService {
      * Get order using orderId.
      * @param orderId, the id of the order {@link Long}.
      * @return Order found at the given id {@link Order}.
-     * @throws ResourceNotFoundException
+     * @throws ResourceNotFoundException is thrown {@link ResourceNotFoundException}
      */
     @Override
     public Order getOrderById(long orderId) throws ResourceNotFoundException{

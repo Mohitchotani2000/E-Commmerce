@@ -21,6 +21,7 @@ public class Order {
     private Date createdDate;
     @Column(name = "total_price")
     private long totalPrice;
-    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "order_id", referencedColumnName = "orderId")
     private List<OrderItem> orderItems;
 }
