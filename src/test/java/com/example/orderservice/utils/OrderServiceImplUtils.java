@@ -52,16 +52,6 @@ public class OrderServiceImplUtils {
     }
 
     public static List<Order> getOrderList(){
-        Order order1 =  new Order();
-        Order order2 =  new Order();
-        order1.setOrderItems(ORDER_ITEM_1);
-        order1.setTotalPrice(520);
-        order1.setCreatedDate(new Date());
-        order1.setOrderId(1);
-        order2.setOrderItems(ORDER_ITEM_2);
-        order2.setTotalPrice(1020);
-        order2.setCreatedDate(new Date());
-        order2.setOrderId(2);
-        return new ArrayList<>(Arrays.asList(order1,order2));
+        return new ArrayList<>(Arrays.asList(ORDER_1,ORDER_2));
     }
 }
