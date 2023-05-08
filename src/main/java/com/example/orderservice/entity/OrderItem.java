@@ -13,13 +13,13 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderItemId;
 
-    @Transient
-    private String productName;
     @Column(name = "quantity")
     private long quantity;
 
-    @OneToOne
-    @JoinColumn(name = "product_id",referencedColumnName = "productId")
+    @Column(name = "product_id")
+    private long productId;
+
+    @Transient
     private Product product;
 
 }

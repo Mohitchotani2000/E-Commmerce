@@ -4,9 +4,8 @@ import com.example.orderservice.entity.Product;
 import lombok.Data;
 
 @Data
-public class OrderItemDto {
-    private long orderItemId;
-    private long productName;
-    private long quantity;
+public class CartItemDto {
+    private long cartItemId;
+    private  long quantity;
     private Product product;
 }

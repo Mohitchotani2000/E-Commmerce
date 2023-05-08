@@ -20,8 +20,10 @@ public class Order {
     @Column(name = "created_date")
     private Date createdDate;
     @Column(name = "total_price")
-    private long totalPrice;
+    private double totalPrice;
     @OneToMany(targetEntity = OrderItem.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "order_id", referencedColumnName = "orderId")
     private List<OrderItem> orderItems;
+    @Column(name="user_id")
+    private long userId;
 }
